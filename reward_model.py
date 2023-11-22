@@ -1,13 +1,7 @@
 import json
 
 # import synthetic human feedback dataset
-# TODO: figure out how PATA is structured
-json_path = 'pata_dataset/pata_fairness.captions.json'
-with open(json_path, 'r') as f:
-    captions = []
-    for line in f:
-        obj = json.loads(line)
-        captions.append(obj)
+# NOTE: see baselines/evaluate_CLIP.py for how to load a dataset
 
 # train the reward model
 # TODO: instantiate reward model
