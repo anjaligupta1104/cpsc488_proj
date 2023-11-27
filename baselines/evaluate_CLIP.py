@@ -6,6 +6,7 @@ import math
 import json
 from transformers import CLIPProcessor, CLIPModel
 import requests
+import os
 
 def get_text_embedding(model, caption, device="cpu"):
     # tokenize the caption
@@ -125,10 +126,11 @@ if __name__ == "__main__":
     processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
     # Load dataset and captions
-    #dataset_path = '../pata_dataset/'
-    #with open(dataset_path.join('pata_fairness.captions.json'), 'r', encoding='utf-8') as f:
-        #scene_captions = json.load(f)
-    #(Wenni)changed this part of code because files could not be found
+    script_path = os.path.abspath(__file__)
+    script_dir = os.path.dirname(script_path)
+    parent_dir = os.path.dirname(script_dir)
+    os.chdir(parent_dir)
+
     with open('pata_dataset/pata_fairness.captions.json', 'r', encoding='utf-8') as f:
         scene_captions = json.load(f)
 
