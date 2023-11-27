@@ -124,8 +124,11 @@ if __name__ == "__main__":
     processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
     # Load dataset and captions
-    dataset_path = '../pata_dataset/'
-    with open(dataset_path.join('pata_fairness.captions.json'), 'r', encoding='utf-8') as f:
+    #dataset_path = '../pata_dataset/'
+    #with open(dataset_path.join('pata_fairness.captions.json'), 'r', encoding='utf-8') as f:
+        #scene_captions = json.load(f)
+    #(Wenni)changed this part of code because files could not be found
+    with open('pata_dataset/pata_fairness.captions.json', 'r', encoding='utf-8') as f:
         scene_captions = json.load(f)
 
     pos_captions = {'races': [], 'gender': [], 'age': []}
@@ -134,10 +137,10 @@ if __name__ == "__main__":
         for k in ['races', 'gender', 'age']:
             pos_captions[k].extend(scene['pos'][k])
             neg_captions[k].extend(scene['neg'][k])
-
+    '''
     protected_labels = {'races': [], 'gender': [], 'age': []}
     image_paths = []
-    with open(dataset_path.join('pata_fairness.files.lst'), 'r', encoding='utf-8') as f:
+    with open('pata_dataset/pata_fairness.files.lst', 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             all_label, image_path = line.split('|')
@@ -146,14 +149,32 @@ if __name__ == "__main__":
             image_paths.append(image_path)
             for k, v in zip(['races', 'gender', 'age'], labels[1:]): 
                 protected_labels[k].append(v)
-
+    '''
     num_images_for_test = 200
-    images = images[:num_images_for_test]
-    protected_labels = protected_labels[:num_images_for_test]
+    #images = image_paths[:num_images_for_test]
+    #protected_labels = protected_labels[:num_images_for_test]
+    #(Wenni)Changed this part because protected_labels[:num_images_for_test] does not work for dictionary object
+    protected_labels = {'races': [], 'gender': [], 'age': []}
+    image_paths = []
+    number_images=0
+    with open('pata_dataset/pata_fairness.files.lst', 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            all_label, image_path = line.split('|')
+            labels = all_label.split('_')
+
+            image_paths.append(image_path)
+            for k, v in zip(['races', 'gender', 'age'], labels[1:]): 
+                protected_labels[k].append(v)
+            number_images+=1
+            if (number_images==num_images_for_test):
+                break
+    images=image_paths
+                
 
     max_skew, min_skew = calculate_skew_scores(model,
                                                images,
-                                               captions,
+                                               pos_captions,
                                                protected_labels,
                                                K=50,
                                                device=device)
