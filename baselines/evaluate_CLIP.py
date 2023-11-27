@@ -43,8 +43,9 @@ def calculate_similarity_scores(model, image_paths, caption, device="cpu"):
     
     # return similarities
 
-    images = [Image.open(requests.get(path, stream=True).raw) for path in images]
-    inputs = processor(text=captions, images=images, return_tensors="pt", padding=True)
+    #images = [Image.open(requests.get(path, stream=True).raw) for path in image_paths]
+    images=image_paths
+    inputs = processor(text=caption, images=images, return_tensors="pt", padding=True)
     outputs = model(**inputs)
     similarities = outputs.logits_per_image
 
@@ -156,24 +157,31 @@ if __name__ == "__main__":
     #(Wenni)Changed this part because protected_labels[:num_images_for_test] does not work for dictionary object
     protected_labels = {'races': [], 'gender': [], 'age': []}
     image_paths = []
+    images_opened = []
     number_images=0
     with open('pata_dataset/pata_fairness.files.lst', 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             all_label, image_path = line.split('|')
             labels = all_label.split('_')
-
-            image_paths.append(image_path)
-            for k, v in zip(['races', 'gender', 'age'], labels[1:]): 
-                protected_labels[k].append(v)
-            number_images+=1
-            if (number_images==num_images_for_test):
-                break
+            try:
+                temp=Image.open(requests.get(image_path, stream=True).raw)
+                images_opened.append(temp)
+                image_paths.append(image_path)
+                for k, v in zip(['races', 'gender', 'age'], labels[1:]): 
+                    protected_labels[k].append(v)
+                number_images+=1
+                if (number_images==num_images_for_test):
+                    break
+            except:
+                continue
     images=image_paths
+    print("The length is:")
+    print(len(images))
                 
 
     max_skew, min_skew = calculate_skew_scores(model,
-                                               images,
+                                               images_opened,
                                                pos_captions,
                                                protected_labels,
                                                K=50,
