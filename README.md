@@ -4,6 +4,9 @@ CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 ### PATA Dataset
 The original dataset used in this project can be found [here](https://github.com/pata-fairness/pata_dataset)
 
+### Get CLIP
+Use this command to install CLIP: pip install git+https://github.com/openai/CLIP.git
+
 ## Training from Scratch
 
 ### Download the Human Preference Classifier model
