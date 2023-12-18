@@ -26,3 +26,6 @@ Please navigate to MaxSkew_MinSkew_Evaluation folder and run ```python evaluate_
 ## Evaluation
 
 ### TODO
+## Citation
+The finetune CLIP code was adopted from the Github page [here](https://github.com/shashnkvats/Indofashionclip/tree/main) </br>
+The MaxSkew and MinSkew evaluation code was adopted from the project [here](https://github.com/oxai/debias-vision-lang/blob/master/debias_clip/measuring_bias.py)
