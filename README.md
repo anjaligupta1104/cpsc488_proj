@@ -2,7 +2,7 @@
 CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 
 ### PATA Dataset
-The original dataset used in this project can be found [here](https://github.com/pata-fairness/pata_dataset)
+The original dataset used in this project can be found [here](https://github.com/pata-fairness/pata_dataset).
 
 ### Get CLIP
 Use this command to install CLIP: ```pip install git+https://github.com/openai/CLIP.git```
@@ -13,7 +13,8 @@ The environment can easily be setup using the following command ```conda create 
 ## Training from Scratch
 
 ### Download the Human Preference Classifier model
-The Human Preference Classifier from "Better Aligning Text-to-Image Models with Human Preference" (Wu et al. 2023) serves as our primary comparison. Because of size, we could not upload their trained model to GitHub.
+The Human Preference Classifier from "Better Aligning Text-to-Image Models with Human Preference" (Wu et al. 2023) serves as our primary comparison. Because of size, we could not upload their trained model to GitHub. 
+
 Please download the pretrained human preference classifier from the [official repo](https://github.com/tgxs002/align_sd). After downloading the model, create a folder called "Human_Preference_Classifier_model" inside the "MaxSkew_MinSkew_Evaluation" folder and place the pretrained model in it.
 
 ### Train reward model
@@ -32,6 +33,7 @@ Please navigate to MaxSkew_MinSkew_Evaluation folder and run ```python evaluate_
 ## Evaluation
 
 ### TODO
+
 ## Citation
 The finetune CLIP code was adapted from the Github page [here](https://github.com/shashnkvats/Indofashionclip/tree/main) </br>
 The MaxSkew and MinSkew evaluation code was adapted from the project [here](https://github.com/oxai/debias-vision-lang/blob/master/debias_clip/measuring_bias.py)
