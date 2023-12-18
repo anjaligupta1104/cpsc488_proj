@@ -5,7 +5,10 @@ CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 The original dataset used in this project can be found [here](https://github.com/pata-fairness/pata_dataset)
 
 ### Get CLIP
-Use this command to install CLIP: pip install git+https://github.com/openai/CLIP.git
+Use this command to install CLIP: ```pip install git+https://github.com/openai/CLIP.git```
+
+### Setup Environment
+The environment can easily be setup using the following command ```conda create --name <envname> --file requirements.txt```
 
 ## Training from Scratch
 
