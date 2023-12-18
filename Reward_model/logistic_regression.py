@@ -66,12 +66,12 @@ if __name__ == "__main__":
     
     accuracy = accuracy_score(y_test, y_pred)
     report = classification_report(y_test, y_pred)
-    conf_matrix = confusion_matrix(y_test, y_pred)
+    cm = confusion_matrix(y_test, y_pred)
     
     
     print(f'Accuracy: {accuracy}')
     print('Classification Report:\n', report)
-    print('Confusion Matrix:\n', conf_matrix)
+    print('Confusion Matrix:\n', cm)
     
     pickle.dump(reward_model, open("reward_model_16.sav", 'wb'))
             

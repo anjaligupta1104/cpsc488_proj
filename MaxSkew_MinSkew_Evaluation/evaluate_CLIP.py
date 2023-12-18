@@ -71,6 +71,7 @@ def calculate_skew_scores(model, image_dataloader, captions, K, device):
     print("image embedding done")
     test=0
     #['races','gender','age']
+    #Evaluation
     #change gender to races and age for maxskew and minskew evaluation
     for PA in ['gender']:
         #labels = protected_labels[PA]
@@ -128,6 +129,8 @@ class PATADataset(Dataset):
         try:
             img = Image.open(requests.get(image_path, stream=True).raw)
             img = self.transform(img)
+            #Evaluation
+            #change gender to races and age for maxskew and minskew evaluation
             label = self.labels[idx]['gender']
         except:
             return None
