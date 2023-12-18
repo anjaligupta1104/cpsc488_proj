@@ -1,4 +1,4 @@
-# cpsc488_proj
+# Social Debiasing of Large Vision-Language Models with RLAIF
 CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 
 ### How to get MaxSkew and MinSkew for CLIP with Human Preference Classifier
