@@ -10,6 +10,8 @@ Please download the pretrained human preference classifier from the [official re
 ### Train reward model
 Please navigate to Reward_model folder and run ```python logistic_regression.py``` to train our logistic regression reward model. The model will be trained and saved as reward_model_16.sav.
 
+In order to train the preference learning reward model, navigate to the Reward_model folder and run ```preference_learning.py``` to train and test the preference learning reward model. The model checkpoint will be save to model_1.pth
+
 ### Finetune CLIP
 Please place reward model reward_model_16.sav inside the "Finetune_CLIP_with_Reward" folder, navigate to that folder, and run ```python finetune_clip.py``` to finetune the CLIP model using. The finetuned CLIP will be saved as clip_finetune_30epoch.pt.
 
