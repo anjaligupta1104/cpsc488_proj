@@ -70,7 +70,7 @@ if device == "cpu":
 reward_model = pickle.load(open("reward_model_16.sav", 'rb'))
 
 # Prepare the optimizer
-optimizer = torch.optim.Adam(model.parameters(), lr=5e-5,betas=(0.9,0.98),eps=1e-6,weight_decay=0.2)
+optimizer = torch.optim.Adam(model.parameters(), lr=5e-4,betas=(0.9,0.98),eps=1e-6,weight_decay=0.2)
 
 # Train the model
 model.train()
