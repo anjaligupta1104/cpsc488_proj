@@ -1,6 +1,9 @@
 # Social Debiasing of Large Vision-Language Models with RLAIF
 CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 
+# PATA Dataset
+The original dataset used in this project can be found (here)[https://github.com/pata-fairness/pata_dataset]
+
 ## Training from Scratch
 
 ### Download the Human Preference Classifier model
