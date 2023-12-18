@@ -1,8 +1,8 @@
 # Social Debiasing of Large Vision-Language Models with RLAIF
 CPSC 488 Final Project - Wenni Fan, Anjali Gupta, Suba Ramesh
 
-# PATA Dataset
-The original dataset used in this project can be found (here)[https://github.com/pata-fairness/pata_dataset]
+### PATA Dataset
+The original dataset used in this project can be found [here](https://github.com/pata-fairness/pata_dataset)
 
 ## Training from Scratch
 
@@ -26,3 +26,6 @@ Please navigate to MaxSkew_MinSkew_Evaluation folder and run ```python evaluate_
 ## Evaluation
 
 ### TODO
+## Citation
+The finetune CLIP code was adopted from the Github page [here](https://github.com/shashnkvats/Indofashionclip/tree/main) </br>
+The MaxSkew and MinSkew evaluation code was adopted from the project [here](https://github.com/oxai/debias-vision-lang/blob/master/debias_clip/measuring_bias.py)
