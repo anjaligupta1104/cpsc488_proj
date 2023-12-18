@@ -15,6 +15,8 @@ In order to train the preference learning reward model, navigate to the Reward_m
 ### Finetune CLIP
 Please place reward model reward_model_16.sav inside the "Finetune_CLIP_with_Reward" folder, navigate to that folder, and run ```python finetune_clip.py``` to finetune the CLIP model using. The finetuned CLIP will be saved as clip_finetune_30epoch.pt.
 
+In order to finetune clip with the preference learning reward model, change the torch load path on line 108 in ```finetune_clip_pref_model.py``` to the path to your saved checkpoint for the preference learning reward model. Then run this script and the finetuned CLIP weights will be saved as clip_finetune_30epoch.pt
+
 ### MaxSkew and MinSkew Evaluation
 Please navigate to MaxSkew_MinSkew_Evaluation folder and run ```python evaluate_CLIP.py```. The default evaluation is of CLIP model aligned by Human Preference Classifier tested on bias for the gender attribute and measured by MaxSkew and MinSkew. Please change the code at the '#Evaluation' comment to test other attributes.
 
